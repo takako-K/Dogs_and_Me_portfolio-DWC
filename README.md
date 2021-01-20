@@ -1,24 +1,41 @@
-# README
+# 犬と私のワンダフルライフ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
 
-Things you may want to cover:
+犬（ペット）とその飼い主の予定を管理し、飼い主同士の交流を深めるためのコミュニケーションを可能にするサイトです。
 
-* Ruby version
+### サイトテーマ
 
-* System dependencies
+かけがえのない家族との生活を健康に・そして豊かにする。
 
-* Configuration
+### テーマを選んだ理由
 
-* Database creation
+子どもの時から動物の存在が身近であり、特に犬は私にとって大切な家族の一員です。コロナウイルスの大流行を機に、人の健康は勿論の事、言葉を話すことができない犬の健康を守ることの手助けがしたいと感じ、このテーマを選びました。
 
-* Database initialization
+### ターゲットユーザ
 
-* How to run the test suite
+動物を飼育する中で予定管理に悩む人々をターゲットとする。
 
-* Services (job queues, cache servers, search engines, etc.)
+### 主な利用シーン
 
-* Deployment instructions
+- 動物の通院・投薬予定の管理
+- 人のスケジュール管理
+- 飼い主間での動物に関するコミュニケーションを図る際に利用
 
-* ...
+## 設計書
+
+## チャレンジ要素一覧
+
+https://docs.google.com/spreadsheets/d/1iRpsq_U2sOY2fYtknGGtsYGJb2C9fPXEHViPjBNwApQ/edit?usp=sharing
+
+## 開発環境
+
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JS ライブラリ：jQuery
+- IDE：Cloud9
+
+## 使用素材
+
+現状なし
