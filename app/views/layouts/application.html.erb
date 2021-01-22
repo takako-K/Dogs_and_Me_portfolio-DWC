@@ -23,6 +23,14 @@
         <%= link_to "ログイン", new_user_session_path %>
       </ul>
     <% end %>
+
+    <!--フラッシュメッセージ-->
+    <% flash.each do |key, value| %>
+      <p class="alert alert-<%= key %> mt-3">
+        <%= value %>
+      </p>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
