@@ -1,2 +1,40 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-2">サイドバー</div>
+    <div class="col-9 offset-md-1">
+      <h1><i class="fas fa-paw"></i>ユーザー詳細</h1>
+        <div class="card-list-container p-3">
+          <% @posts.each do |post| %>
+          <div class="row shadow-lg">
+            <div class="col-4 my-auto">
+              <%= link_to post_path(post.id) do %>
+                <%= attachment_image_tag post, :post_image, :fill, 280, 300 %>
+              <% end %>
+            </div>
+            <div class="col-8">
+              <div class="card-body">
+                <p>
+                  <%= attachment_image_tag post.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", class: "mt-1 rounded-circle"; %>
+                </p>
+                <p class="card-title">
+                  <%= link_to post_path(post.id), class: "text-dark" do %>
+                    <h5 class="strong">
+                      <i class="fas fa-paw"></i><span><%= post.title %></span>
+                    </h5>
+                  <% end %>
+                </p>
+                <p class="card-text">
+                  <%= post.body %>
+                </p>
+                <span>
+                  <i class="fas fa-user"></i> By <%= post.user.name %>
+                </span>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+    </div>
+
+  </div>
+</div>
