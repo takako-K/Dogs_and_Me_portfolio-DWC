@@ -71,3 +71,5 @@ gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+gem 'font-awesome-sass', '~> 5.13'
+gem 'kaminari', '~> 1.2.1'
