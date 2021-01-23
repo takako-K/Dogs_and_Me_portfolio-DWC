@@ -4,11 +4,13 @@ class PostCommentsController < ApplicationController
     comment = current_user.post_comments.new(post_comment_params)
     comment.post_id = post.id
     comment.save
+    flash[:success] = "コメントを投稿しました。"
     redirect_to post_path(post.id)
   end
 
   def destroy
     PostComment.find_by(id: params[:id], post_id: params[:post_id]).destroy
+    flash[:info] = "コメントを削除しました。"
     redirect_to post_path(params[:post_id])
   end
 
