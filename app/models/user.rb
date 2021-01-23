@@ -7,4 +7,7 @@ class User < ApplicationRecord
   attachment :profile_image
 
   has_many :posts, dependent: :destroy
+
+  validates :name, uniqueness: true, length: { in: 2..20 }
+  validates :introduction, length: { maximum: 100 }
 end
