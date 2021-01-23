@@ -11,18 +11,50 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <ul>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </ul>
-    <% else %>
-      <ul>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </ul>
-      <ul>
-        <%= link_to "ログイン", new_user_session_path %>
-      </ul>
-    <% end %>
+    <header class="shadow-sm">
+      <div class="container">
+        <div class="row">
+          <div class="col align-self-center">
+            <div class="navbar-brand p-3">
+              <%= link_to "LOGO", root_path %>
+            </div>
+          </div>
+          <div class="col-align-self-center">
+            <% if user_signed_in? %>
+              <ul class="nav navbar-expand-lg navbar-right">
+                <li class="nav-item m-3">
+                  <%= link_to "ホーム", user_path(current_user.id), class: "btn btn-outline-secondary" %>
+                </li>
+                <li class="nav-item m-3">
+                  <%= link_to "投稿一覧", posts_path, class: "btn btn-outline-secondary" %>
+                </li>
+                <li class="nav-item m-3">
+                  <%= link_to "ユーザー一覧", users_path, class: "btn btn-outline-secondary" %>
+                </li>
+                <li class="nav-item m-3">
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-outline-secondary" %>
+                </li>
+              </ul>
+            <% else %>
+              <ul class="nav navbar-expand-lg navbar-right">
+                <li class="nav-item m-3">
+                  <%= link_to "ホーム", root_path, class: "btn btn-outline-secondary" %>
+                </li>
+                <li class="nav-item m-3">
+                  <%= link_to "サイト案内", about_path, class: "btn btn-outline-secondary" %>
+                </li>
+                <li class="nav-item m-3">
+                  <%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-secondary" %>
+                </li>
+                <li class="nav-item m-3">
+                  <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-secondary" %>
+                </li>
+              </ul>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </header>
 
     <!--フラッシュメッセージ-->
     <% flash.each do |key, value| %>
@@ -32,5 +64,13 @@
     <% end %>
 
     <%= yield %>
+
+    <footer class="shadow-sm mt-5">
+      <div class="container">
+        <p class="text-muted text-center">
+          © All rights reserved by Otaka.
+        </p>
+      </div>
+    </footer>
   </body>
 </html>
