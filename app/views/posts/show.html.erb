@@ -26,7 +26,20 @@
                 </p>
                 <span><i class="fas fa-user"></i> By <%= @post.user.name %> | </span>
                 <span><i class="fa fa-calendar"></i> <%= @post.created_at.strftime('%Y/%m/%d') %> | </span>
-                <span><i class="fa fa-comment"></i></span>
+                <span><i class="fa fa-comment"></i>|</span>
+                <% if @post.favorited_by?(current_user) %>
+                  <span>
+                    <%= link_to post_favorites_path(@post.id), method: :delete do %>
+                      ❤<%= @post.favorites.count %> いいね
+                    <% end %>
+                  </span>
+                <% else %>
+                  <span>
+                    <%= link_to post_favorites_path(@post.id), method: :post do %>
+                      ♡<%= @post.favorites.count %> いいね
+                    <% end %>
+                  </span>
+                <% end %>
                 <p class="card-action p-3">
                   <% if @post.user == current_user %>
                     <%= link_to "編集", edit_post_path(@post.id), class: "btn btn-success" %>
