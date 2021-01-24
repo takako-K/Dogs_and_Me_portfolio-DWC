@@ -1,0 +1,51 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-2">
+      <%= render 'users/info', user: @user %>
+    </div>
+    <div class="col-9 offset-md-1">
+      <h1><i class="fas fa-paw"></i>カレンダー</h1>
+      <!--カレンダーの表示-->
+      <div id="calendar"></div>
+      <% if @user.id == current_user.id %>
+        <div id="inputScheduleForm" class="modal fade" tabindex="-1">
+          <div class="modal-dialog modal-nm">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">スケジュール登録</h4>
+              </div>
+              <div class="modal-body">
+                <%= form_with model: @event, url: user_events_path do |f| %>
+                  <div class="col">
+                    <p>
+                      <span>タイトル</span>
+                      <span><%= f.text_field :title, class: "form-control", placeholder: "タイトルを入力してください" %></span>
+                    </p>
+                    <p>
+                      <span>開始日時</span>
+                      <span><%= f.datetime_field :start, class: "field", placeholder: "XXXX-XX-XX" %> ~ </span><br>
+                      <span>終了日時</span>
+                      <span><%= f.datetime_field :end, class: "field", placeholder: "XXXX-XX-XX" %></span>
+                    </p>
+                    <p>
+                      <span>詳細内容</span>
+                      <span><%= f.text_field :body, class: "form-control", placeholder: "予定の詳細を入力してください" %></span>
+                    </p>
+                  </div>
+                  <div class="modal-footer">
+                    <%= f.submit "登録する", class: "btn btn-primary" %>
+                    <%= f.hidden_field :user_id, :value => current_user.id %>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="inputEditForm">
+          <%= render 'events/edit', events: @events %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
