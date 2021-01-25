@@ -8,7 +8,7 @@
       <!--カレンダーの表示-->
       <div id="calendar"></div>
       <% if @user.id == current_user.id %>
-        <div id="inputScheduleForm" class="modal fade" tabindex="-1">
+        <div id="inputScheduleForm" class="modal-fade" tabindex="-1">
           <div class="modal-dialog modal-nm">
             <div class="modal-content">
               <div class="modal-header">
@@ -49,3 +49,45 @@
     </div>
   </div>
 </div>
+<script>
+  // カレンダー表示内容
+  $('#calendar').fullCalendar({
+    titleFormat: 'YYYY年 M月',
+    dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
+    header: {
+      left: 'prev, next, today',
+      center: 'month, agendaWeek, agendaDay',
+      right: 'title'
+    },
+    buttonText: {
+      prev: "<",
+      next: ">",
+      prevYear: "前年",
+      nextYear: "翌年",
+      today: "今日",
+      month: "月",
+      week: "週",
+      day: "日"
+    },
+    timeFormat: "HH:mm",
+    eventColor: '#63ceef',
+    eventTextColor: '#000000',
+    timezone: 'UTC',
+    events: 'events/json',
+    navLinks: true,
+    selectable: true,
+    selectHelper: true,
+    // 日付クリック
+    dayClick : function ( date, jsEvent, view ) {
+      $('#inputScheduleForm').modal('index');
+    },
+    // イベントクリックでモーダルフォーム表示（編集・削除）
+    eventClick : function ( event, jsEvent, view ) {
+      jsEvent.preventDefault();
+      $('#inputScheduleEditForm${event.id}').modal('index');
+    },
+    eventMouseover : function( event, jsEvent, view ) {
+      jsEvent.preventDefault();
+    }
+  })
+</script>

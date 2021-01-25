@@ -1,5 +1,5 @@
 <% events.each do |event| %>
-  <div id='inputScheduleEditForm<%= event.id %>' class="modal fade" tabindex="-1">
+  <div id='inputScheduleEditForm<%= event.id %>' class="modal-fade" tabindex="-1">
     <div class="modal-dialog modal-nm">
       <div class="modal-content">
         <div class="modal-header">
@@ -7,7 +7,7 @@
         </div>
         <div class="modal-body">
           <div class="col">
-            <%= form_with(model: event, url: user_event_path(event), method: :put) do |f| %>
+            <%= form_with(model: event, url: user_event_path(current_user.id, event.id), method: :put) do |f| %>
               <p>
                 <span>タイトル</span>
                 <span id="inputTitle" value=""><%= f.text_field :title, class: "form-control", placeholder: "タイトルを入力してください" %></span>
