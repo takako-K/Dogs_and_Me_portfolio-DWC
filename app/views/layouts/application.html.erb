@@ -82,6 +82,13 @@
       </p>
     <% end %>
 
+    <!--10秒かけてアラートを消したい-->
+    <script>
+      $(function(){
+      $(".alert").fadeOut(10000);
+      });
+　  </script>
+
     <%= yield %>
 
     <footer class="shadow-sm mt-5">

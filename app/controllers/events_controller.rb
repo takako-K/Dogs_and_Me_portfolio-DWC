@@ -9,6 +9,7 @@ class EventsController < ApplicationController
   end
 
   def create
+    @user = current_user
     event = Event.new(event_params)
     event.save!
     @events = Event.where(user_id: current_user.id)

@@ -6,7 +6,8 @@
     <div class="col-9 offset-md-1">
       <h1><i class="fas fa-paw"></i>カレンダー</h1>
       <!--カレンダーの表示-->
-      <div id="calendar"></div>
+      <div id="calendar">
+      </div>
       <% if @user.id == current_user.id %>
         <div id="inputScheduleForm" class="modal-fade" tabindex="-1">
           <div class="modal-dialog modal-nm">
@@ -33,7 +34,7 @@
                     </p>
                   </div>
                   <div class="modal-footer">
-                    <%= f.submit "登録する", class: "btn btn-primary" %>
+                    <%= f.submit "登録する", class: "btn-js btn btn-primary" %>
                     <%= f.hidden_field :user_id, :value => current_user.id %>
                     <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
                   </div>

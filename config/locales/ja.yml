@@ -1,6 +1,6 @@
 ja:
   activerecord:
-    attribute:
+    attributes:
       user:
         name: "ユーザー名"
         introduction: "自己紹介文"
