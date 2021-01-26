@@ -43,7 +43,7 @@ class PostsController < ApplicationController
       redirect_to post_path(@post.id)
     else
       @user = current_user
-      render action: :index
+      render action: :new
     end
   end
 

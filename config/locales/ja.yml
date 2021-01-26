@@ -4,11 +4,11 @@ ja:
       user:
         name: "ユーザー名"
         introduction: "自己紹介文"
-        profile_image_id: "プロフィール画像"
+        profile_image: "プロフィール画像"
       post:
         title: "投稿タイトル"
         body: "投稿本文"
-        post_image_id: "投稿画像"
+        post_image: "投稿画像"
       post_comment:
         comment: "コメント"
       event:

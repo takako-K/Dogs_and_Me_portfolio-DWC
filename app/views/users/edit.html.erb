@@ -2,6 +2,16 @@
   <h1 class="row m-3"><i class="fas fa-paw"></i>ユーザー情報編集</h1>
   <div class="row">
     <div class="col-12 m-3">
+      <!--バリデーションによるエラーメッセージ-->
+      <% if @user.errors.any? %>
+        <div id="error_explanation" class="alert alert-danger">
+          <%= @user.errors.count %>件のエラーが発生しました<br>
+          <% @user.errors.full_messages.each do |message| %>
+            <%= message %>
+          <% end %>
+        </div>
+      <% end %>
+      <!--ここまで-->
       <%= form_with model:@user, url:"/users/#{@user.id}", local:true do |f| %>
         <div class="form-group">
           <label for="inputName">ユーザー名</label>

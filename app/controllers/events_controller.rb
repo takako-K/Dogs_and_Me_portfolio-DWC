@@ -1,5 +1,8 @@
 class EventsController < ApplicationController
   def show
+    @event = Event.new
+    @user = current_user
+    @events = Event.where(user_id: current_user.id)
   end
 
   def index

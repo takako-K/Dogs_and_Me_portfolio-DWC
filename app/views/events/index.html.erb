@@ -6,10 +6,9 @@
     <div class="col-9 offset-md-1">
       <h1><i class="fas fa-paw"></i>カレンダー</h1>
       <!--カレンダーの表示-->
-      <div id="calendar">
-      </div>
+      <div id="calendar"></div>
       <% if @user.id == current_user.id %>
-        <div id="inputScheduleForm" class="modal-fade" tabindex="-1">
+        <div id="inputScheduleForm" class="modal fade" tabindex="-1">
           <div class="modal-dialog modal-nm">
             <div class="modal-content">
               <div class="modal-header">
@@ -80,12 +79,12 @@
     selectHelper: true,
     // 日付クリック
     dayClick : function ( date, jsEvent, view ) {
-      $('#inputScheduleForm').modal('index');
+      $('#inputScheduleForm').modal('show');
     },
     // イベントクリックでモーダルフォーム表示（編集・削除）
     eventClick : function ( event, jsEvent, view ) {
       jsEvent.preventDefault();
-      $('#inputScheduleEditForm${event.id}').modal('index');
+      $('#inputScheduleEditForm${event.id}').modal('show');
     },
     eventMouseover : function( event, jsEvent, view ) {
       jsEvent.preventDefault();

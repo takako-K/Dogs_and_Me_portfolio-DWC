@@ -70,6 +70,16 @@
             </div>
             <hr>
             <div class="new-comment card-text">
+            <!--バリデーションによるエラーメッセージ-->
+            <% if @post_comment.errors.any? %>
+              <div id="error_explanation" class="alert alert-danger">
+                <%= @post_comment.errors.count %>件のエラーが発生しました<br>
+                <% @post_comment.errors.full_messages.each do |message| %>
+                  <%= message %>
+                <% end %>
+              </div>
+            <% end %>
+            <!--ここまで-->
               <%= form_with(model:[@post, @post_comment]) do |f| %>
                 <div class="form-group">
                   <label for="inputComment">コメントする</label>
