@@ -84,7 +84,7 @@
     // イベントクリックでモーダルフォーム表示（編集・削除）
     eventClick : function ( event, jsEvent, view ) {
       jsEvent.preventDefault();
-      $('#inputScheduleEditForm${event.id}').modal('show');
+      $(`#inputScheduleEditForm${event.id}`).modal('show');
     },
     eventMouseover : function( event, jsEvent, view ) {
       jsEvent.preventDefault();

@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get '/about', to: 'homes#about'
   resources :users do
-    resources :events, only: [:show, :index, :create, :update, :destroy]
+    resources :events, only: [:show, :index, :create, :update, :destroy] do
+      collection do
+        get 'json' => 'events#json', as:'events'
+      end
+    end
   end
   resources :posts do
     resources :post_comments, only: [:create, :destroy]

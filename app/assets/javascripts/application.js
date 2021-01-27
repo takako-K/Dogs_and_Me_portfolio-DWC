@@ -19,12 +19,3 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-
-// document.addEventListener('turbolinks:load',function(){
-    // $('input[type="text"]').val('')
-    // const btnModal = document.querySelector('.btn-js')
-    // btnModal.addEventListener('click',function(){
-        // const modalRegistration = document.querySelectorAll('#inputScheduleForm')[0]
-        // modalRegistration.classList.add('hidden')
-    // })
-// })

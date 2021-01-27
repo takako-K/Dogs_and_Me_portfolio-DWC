@@ -5,6 +5,10 @@ class EventsController < ApplicationController
     @events = Event.where(user_id: current_user.id)
   end
 
+  def json
+    @events = Event.where(user_id: params[:user_id])
+  end
+
   def index
     @event = Event.new
     @user = current_user
