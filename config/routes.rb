@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :events, only: [:show, :index, :create, :update, :destroy] do
       collection do
-        get 'json' => 'events#json', as:'events'
+        get 'json' => 'events#json', as: 'events'
       end
     end
   end

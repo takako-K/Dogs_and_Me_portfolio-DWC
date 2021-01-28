@@ -19,6 +19,7 @@ class EventsController < ApplicationController
     @user = current_user
     event = Event.new(event_params)
     event.save!
+    flash.now[:success] = "予定を登録しました"            # リダイレクトさせればメッセージ出力？
     @events = Event.where(user_id: current_user.id)
   end
 
@@ -26,12 +27,14 @@ class EventsController < ApplicationController
     event = Event.find(params[:id])
     @events = Event.where(user_id: current_user.id)
     event.update(event_params)
+    flash.now[:success] = "予定を更新しました"
   end
 
   def destroy
     @user = current_user
     event = Event.find(params[:id])
     event.destroy
+    flash[:info] = "予定を削除しました"
     redirect_to user_events_path(@user)
   end
 
@@ -40,5 +43,4 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:user_id, :title, :body, :allday, :start, :end)
   end
-
 end
