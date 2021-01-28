@@ -9,7 +9,6 @@
     <!--FullCalendarの読み込み-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.min.css">
-    <link href='calendar.css' rel='stylesheet' />
     <!--ここまで-->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -33,7 +32,7 @@
                   <% end %>
                 </li>
                 <li class="nav-item m-3">
-                  <%= link_to user_events_path(current_user.id), class: "btn btn-outline-secondary" do %>
+                  <%= link_to user_events_path(current_user.id), class: "btn btn-outline-secondary", data: {"tubolinks" => false} do %>
                     <i class="fa fa-calendar"></i>マイカレンダー
                   <% end %>
                 </li>

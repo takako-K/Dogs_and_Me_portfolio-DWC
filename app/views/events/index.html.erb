@@ -52,6 +52,7 @@
 <script>
   // カレンダー表示内容
   $('#calendar').fullCalendar({
+    plugin: ['dayGrid'],
     titleFormat: 'YYYY年 M月',
     dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
     header: {
@@ -72,11 +73,14 @@
     timeFormat: "HH:mm",
     eventColor: '#63ceef',
     eventTextColor: '#000000',
-    timezone: 'UTC',
+    timeZone: 'UTC',
     events: 'events/json',
     navLinks: true,
     selectable: true,
     selectHelper: true,
+    defaultView: 'month',
+    allDaySlot: true,
+    allDayText: '終日',
     // 日付クリック
     dayClick : function ( date, jsEvent, view ) {
       $('#inputScheduleForm').modal('show');
