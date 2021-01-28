@@ -31,6 +31,11 @@
                   <% end %>
                 </li>
                 <li class="nav-item m-3">
+                  <%= link_to user_events_path(current_user.id), class: "btn btn-outline-secondary" do %>
+                    <i class="fa fa-calendar"></i>マイカレンダー
+                  <% end %>
+                </li>
+                <li class="nav-item m-3">
                   <%= link_to posts_path, class: "btn btn-outline-secondary" do %>
                     <i class="fas fa-camera-retro"></i>投稿一覧
                   <% end %>

@@ -25,6 +25,7 @@
               <div class="modal-footer">
                 <%= f.hidden_field :user_id, :value => current_user.id %>
                 <%= f.submit "編集する", class: "btn btn-primary" %>
+                <%= link_to "削除する", user_event_path(current_user.id, event.id), method: :delete, data: {confirm: '本当に予定を削除してもよろしいですか？'}, class: "btn btn-danger" %>
                 <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
               </div>
             <% end %>
