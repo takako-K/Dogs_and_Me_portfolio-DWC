@@ -14,17 +14,18 @@
             <i class="fas fa-user-cog"></i>
           <% end %>
         </p>
-        <!--<div class="row mx-auto">-->
-          <!--<h5>本日の予定</h5>-->
-          <!--<%# if current_date.events.exists? %>-->
-            <%# events.each do |event| %>
-              <%#= event.title %>
-            <%# end %>
-          <%# else %>
-            <!--<p>特になし</p>-->
-          <%# end %>
-        <!--</div>-->
-        <p>
+        <div class="row mx-auto">
+          <h5><i class="fa fa-calendar"></i>本日の予定</h5>
+          <% if @today_events.exists? %>
+            <% @today_events.each do |today_event| %>
+              ・<%= today_event.title %><br>
+            <% end %>
+          <% else %>
+            <p>・特になし</p>
+          <% end %>
+        </div>
+        <p class="mt-2">
+          <h5><i class="fas fa-camera-retro"></i>新規投稿</h5>
           <%= link_to "新規投稿", new_post_path, class: "btn btn-success" %>
         </p>
       </div>

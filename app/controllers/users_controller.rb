@@ -2,11 +2,13 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts
+    @today_events = Event.where("start >= ?" && "end >= ?", Date.today)              # eventモデル利用して本日の予定表示
   end
 
   def index
     @users = User.all
     @user = current_user
+    @today_events = Event.where("start >= ?" && "end >= ?", Date.today)              # eventモデル利用して本日の予定表示
   end
 
   def edit
@@ -29,6 +31,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :profile_image, :introduction)
+    params.require(:user).permit(:name, :profile_image, :introduction, :start, :end)
   end
 end
