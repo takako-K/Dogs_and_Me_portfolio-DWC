@@ -27,19 +27,9 @@
                 <span><i class="fas fa-user"></i> By <%= @post.user.name %> | </span>
                 <span><i class="fa fa-calendar"></i> <%= @post.created_at.strftime('%Y/%m/%d') %> | </span>
                 <span><i class="fa fa-comment"></i> <%= link_to "#{@post.post_comments.count}", post_path(@post.id), class: "text-dark" %> | </span>
-                <% if @post.favorited_by?(current_user) %>
-                  <span>
-                    <%= link_to post_favorites_path(@post.id), method: :delete, class: "text-danger" do %>
-                      ❤<%= @post.favorites.count %> いいね
-                    <% end %>
-                  </span>
-                <% else %>
-                  <span>
-                    <%= link_to post_favorites_path(@post.id), method: :post, class: "text-dark" do %>
-                      ♡<%= @post.favorites.count %> いいね
-                    <% end %>
-                  </span>
-                <% end %>
+                <span id="favorites_buttons_<%= @post.id %>">
+                  <%= render partial: 'favorites/favorite', locals: { post: @post} %>
+                </span>
                 <p class="card-action p-3">
                   <% if @post.user == current_user %>
                     <%= link_to "編集", edit_post_path(@post.id), class: "btn btn-success" %>

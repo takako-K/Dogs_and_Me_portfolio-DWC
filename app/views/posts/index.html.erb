@@ -37,19 +37,9 @@
                 <span>
                   <i class="fa fa-comment"></i> <%= link_to "#{post.post_comments.count}", post_path(post.id), class: "text-dark" %> |
                 </span>
-                <% if post.favorited_by?(current_user) %>
-                  <span>
-                    <%= link_to post_favorites_path(post.id), method: :delete, class: "text-danger" do %>
-                      ❤<%= post.favorites.count %> いいね
-                    <% end %>
-                  </span>
-                <% else %>
-                  <span>
-                    <%= link_to post_favorites_path(post.id), method: :post, class: "text-dark" do %>
-                      ♡<%= post.favorites.count %> いいね
-                    <% end %>
-                  </span>
-                <% end %>
+                <span id="favorites_buttons_<%= post.id %>">
+                  <%= render partial: 'favorites/favorite', locals: { post: post} %>
+                </span>
               </div>
             </div>
           </div>
