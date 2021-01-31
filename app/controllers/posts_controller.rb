@@ -4,13 +4,13 @@ class PostsController < ApplicationController
     @posts = Post.all
     @user = current_user
     @post_comment = PostComment.new
-    @today_events = Event.where("start >= ?" && "end >= ?", Date.today)              # eventモデル利用して本日の予定表示
+    @today_events = Event.where("start >= ?" && "end >= ?", Date.today).where(user_id: current_user.id)              # eventモデル利用して本日の予定表示
   end
 
   def index
     @posts = Post.all
     @user = current_user
-    @today_events = Event.where("start >= ?" && "end >= ?", Date.today)              # eventモデル利用して本日の予定表示
+    @today_events = Event.where("start >= ?" && "end >= ?", Date.today).where(user_id: current_user.id)              # eventモデル利用して本日の予定表示
   end
 
   def edit
