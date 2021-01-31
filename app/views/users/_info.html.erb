@@ -15,6 +15,16 @@
           <% end %>
         </p>
         <div class="row mx-auto">
+          <% if unchecked_notifications.any? %>
+            <i class="fa fa-circle" style="color: gold;"></i>
+          <% end %>
+          <h5>
+            <%= link_to notifications_path(current_user.id), class: "btn-default" do %>
+              <i class="fas fa-bell"></i>通知一覧
+            <% end %>
+          </h5>
+        </div>
+        <div class="row mx-auto">
           <h5><i class="fa fa-calendar"></i>本日の予定</h5>
           <% if @today_events.exists? %>
             <% @today_events.each do |today_event| %>
