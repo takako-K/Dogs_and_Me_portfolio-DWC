@@ -1,11 +1,11 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-2">
-      サイドバー
+      <%= render 'users/info', user: @user %>
     </div>
     <div class="col-9 offset-md-1">
       <h1><i class="fas fa-paw"></i>通知一覧</h1>
-        <%= link_to destroy_all_notifications_path(current_user.id), method: :delete do %>
+        <%= link_to notifications_destroy_all_path(current_user.id), method: :delete do %>
           <i class="fas fa-trash" style="color: black;"></i>
           <h7 style="color: black;">全削除</h7>
         <% end %>

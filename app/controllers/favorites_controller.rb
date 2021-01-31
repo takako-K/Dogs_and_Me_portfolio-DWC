@@ -5,7 +5,7 @@ class FavoritesController < ApplicationController
     favorite.save
     # redirect_to request.referer     # 元の画面に遷移する（非同期化した為不要）
     # 通知の作成
-    @post.create_notification_by(current_user_id)
+    @post.create_notification_by(current_user)
     respond_to do |format|
       format.html {redirect_to request.referer}
       format.js

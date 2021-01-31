@@ -13,7 +13,7 @@ class EventsController < ApplicationController
     @event = Event.new
     @user = current_user
     @events = Event.where(user_id: current_user.id)
-    @today_events = Event.where("start >= ?" && "end >= ?", Date.today)             # eventモデル利用して本日の予定表示
+    @today_events = Event.where("start >= ?" && "end >= ?", Date.today).where(user_id: current_user_id)           # eventモデル利用して本日の予定表示
   end
 
   def create
