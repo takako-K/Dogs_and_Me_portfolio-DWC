@@ -7,7 +7,7 @@ class EventsController < ApplicationController
     @event = Event.new
     @user = current_user
     @events = Event.where(user_id: current_user.id)
-    @today_events = Event.where(user_id: current_user.id).where("start <= ?" && "end >= ?", Date.today.end_of_day)           # eventモデル利用して本日の予定表示
+    @today_events = @events.where("start <= ? AND end >= ?", Date.today.end_of_day, Date.today.beginning_of_day)       # eventモデル利用して本日の予定表示
   end
 
   def create
@@ -36,6 +36,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:user_id, :title, :body, :allDay, :start, :end)
+    params.require(:event).permit(:user_id, :title, :body, :allday, :start, :end)
   end
 end

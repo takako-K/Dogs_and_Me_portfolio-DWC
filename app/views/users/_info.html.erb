@@ -25,7 +25,11 @@
           </h5>
         </div>
         <div class="row mx-auto">
-          <h5><i class="fa fa-calendar"></i>本日の予定</h5>
+          <h5>
+            <%= link_to user_events_path(current_user.id), class: "btn-default, text-dark" do %>
+              <i class="fa fa-calendar"></i>本日の予定
+            <% end %>
+          </h5>
           <% if @today_events.exists? %>
             <% @today_events.each do |today_event| %>
               ・<%= today_event.title %><br>
