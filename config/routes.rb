@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get '/about', to: 'homes#about'
   resources :users do
-    resources :events, only: [:show, :index, :create, :update, :destroy] do
+    resources :events, only: [:index, :create, :update, :destroy] do
       collection do
         get 'json' => 'events#json', as: 'events'          # users show画面への遷移を避ける為
       end

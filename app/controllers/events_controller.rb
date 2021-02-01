@@ -1,10 +1,4 @@
 class EventsController < ApplicationController
-  def show
-    @event = Event.new
-    @user = current_user
-    @events = Event.where(user_id: current_user.id)
-  end
-
   def json
     @events = Event.where(user_id: params[:user_id])
   end
@@ -13,7 +7,7 @@ class EventsController < ApplicationController
     @event = Event.new
     @user = current_user
     @events = Event.where(user_id: current_user.id)
-    @today_events = Event.where(user_id: current_user.id).where("start <= ?" && "end >= ?", Date.today)           # eventモデル利用して本日の予定表示
+    @today_events = Event.where(user_id: current_user.id).where("start <= ?" && "end >= ?", Date.today.end_of_day)           # eventモデル利用して本日の予定表示
   end
 
   def create
@@ -42,6 +36,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:user_id, :title, :body, :allday, :start, :end)
+    params.require(:event).permit(:user_id, :title, :body, :allDay, :start, :end)
   end
 end

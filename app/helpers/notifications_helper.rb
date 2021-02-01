@@ -9,12 +9,12 @@ module NotificationsHelper
       when "favorite" then
         tag.a(notification.visiter.name, href:user_path(@visiter), style: "font-weight: bold;")+"が"+tag.a('あなたの投稿', href:post_path(notification.post_id), style: "font-weight: bold;")+"にいいねしました。"
       when "post_comment" then
-        @post_comment = PostComment.find_by(id: @visiter_post_comment)&.content
+        @post_comment = PostComment.find_by(id: @visiter_post_comment)&.comment
         tag.a(@visiter.name, href:user_path(@visiter), style: "font-weight: bold;")+"が"+tag.a('あなたの投稿', href:post_path(notification.post_id), style: "font-weight: bold;")+"にコメントしました。"
     end
   end
 
   def unchecked_notifications
-    @notifications = current_user.passive_notifications.where(checked: false)
+    current_user.passive_notifications.where(checked: false)
   end
 end
