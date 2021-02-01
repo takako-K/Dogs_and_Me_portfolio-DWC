@@ -22,6 +22,9 @@
                       <span><%= f.text_field :title, class: "form-control", placeholder: "タイトルを入力してください" %></span>
                     </p>
                     <p>
+                      <!--ラジオボタンの記述 checked: "checked"で初期値を選択した状態にする-->
+                      <label><%= f.radio_button :allday, true, checked: "checked" %>終日</label><br>
+                      <label><%= f.radio_button :allday, false %>時間指定</label><br>
                       <span>開始日時</span>
                       <span><%= f.datetime_field :start, class: "field", placeholder: "XXXX-XX-XX" %> ~ </span><br>
                       <span>終了日時</span>
@@ -73,6 +76,7 @@
     timeFormat: "HH:mm",
     eventColor: '#99cc66',
     eventTextColor: '#000000',
+    slotEventOverlap: false,
     timeZone: 'UTC',
     events: 'events/json',
     navLinks: true,
