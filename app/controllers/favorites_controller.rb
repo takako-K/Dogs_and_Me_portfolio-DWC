@@ -7,7 +7,7 @@ class FavoritesController < ApplicationController
     # 通知の作成
     @post.create_notification_by(current_user)
     respond_to do |format|
-      format.html {redirect_to request.referer}
+      format.html { redirect_to request.referer }
       format.js
     end
   end

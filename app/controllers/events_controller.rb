@@ -13,7 +13,8 @@ class EventsController < ApplicationController
   def create
     @user = current_user
     event = Event.new(event_params)
-    if event != nil && event.allday == true               # 終日を選択した場合、自動的にstart,endカラムに値が入る
+    # 終日を選択した場合、自動的にstart,endカラムに値が入る
+    if event != nil && event.allday == true
       event.start = event.start.strftime('%Y/%m/%d')
       event.end = event.end.strftime('%Y/%m/%d')
     end
