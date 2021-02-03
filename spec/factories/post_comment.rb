@@ -3,5 +3,5 @@ FactoryBot.define do
     comment { Faker::Lorem.characters(number: 50) }
     association :user, factory: :user
     association :post, factory: :post
-    association :notification, factory: :notification
+  end
 end
