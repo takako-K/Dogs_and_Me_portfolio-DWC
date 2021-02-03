@@ -77,7 +77,7 @@
     eventColor: '#99cc66',
     eventTextColor: '#000000',
     slotEventOverlap: false,
-    timeZone: 'UTC',
+    timeZone: 'JST',
     events: 'events/json',
     navLinks: true,
     selectable: true,
@@ -97,5 +97,18 @@
     eventMouseover : function( event, jsEvent, view ) {
       jsEvent.preventDefault();
     }
-  })
+/*    eventDataTransform: function(event) {
+      console.log(moment(event.end))
+      if (event.allDay == true) {
+        event.end = moment(event.end).add(1, 'days');
+      } else {
+        console.log(moment(event.end).hour() - 9);
+        if (moment(event.end).hour() - 9 < 15 && moment(event.end).hour() - 9 > 0) {
+          event.end = moment(event.end).add(1, 'days');
+        }
+      }
+      return event;
+    }
+*/
+})
 </script>

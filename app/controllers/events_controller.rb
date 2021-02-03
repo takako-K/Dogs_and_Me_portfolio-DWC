@@ -16,9 +16,9 @@ class EventsController < ApplicationController
     @events = Event.where(user_id: current_user.id)
     event = Event.new(event_params)
     # 終日を選択した場合、自動的にstart,endカラムに値が入る
-    if event != nil && event.allday == true
-      event.start = event.start.strftime('%Y/%m/%d')
-      event.end = event.end.strftime('%Y/%m/%d')
+    if event != nil && event.allday == 'true'
+      event.start = event.start.strftime('%Y/%m/%d 00:00')
+      event.end = event.end.strftime('%Y/%m/%d 00:00')
     end
     event.save!
     flash[:success] = "予定を登録しました"
@@ -29,12 +29,13 @@ class EventsController < ApplicationController
     event = Event.find(params[:id])
     @events = Event.where(user_id: current_user.id)
     # 終日を選択した場合、自動的にstart,endカラムに値が入る
-    if params[:event] != nil && params[:event][:allday] == true
-      allday_event_start = params[:event][:start].strftme('%Y/%m/%d')
-      allday_event_end = params[:event][:end].strftime('%Y/%m/%d')
+    if params[:event] != nil && params[:event][:allday] == 'true'
+      allday_event_start = DateTime.parse(params[:event][:start]).strftime('%Y/%m/%d 00:00')
+      allday_event_end = DateTime.parse(params[:event][:end]).strftime('%Y/%m/%d 00:00')
       event.update(event_params)
       event.start = allday_event_start
       event.end = allday_event_end
+      event.save!
     else
       event.update(event_params)
     end
