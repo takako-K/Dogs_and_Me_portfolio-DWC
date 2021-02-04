@@ -1,6 +1,20 @@
 class EventsController < ApplicationController
   def json
+    # @events = []
+    # Event.where(user_id: params[:user_id]).each do |event|
+    #   if event.allday
+    #     event.end = event.end.since(1.days)
+    #   end
+    #   @events.push(event)
+    # end
     @events = Event.where(user_id: params[:user_id])
+    # Fullcalendarバグ対応（終日表示が1日短くなる）
+    @events = @events.map do |event|
+      if event.allday
+        event.end = event.end.since(1.days)
+      end
+      event
+    end
   end
 
   def index

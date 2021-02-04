@@ -77,7 +77,7 @@
     eventColor: '#99cc66',
     eventTextColor: '#000000',
     slotEventOverlap: false,
-    // timeZone: 'Asia/Tokyo',
+    timeZone: 'Asia/Tokyo',
     events: 'events/json',
     navLinks: true,
     selectable: true,
@@ -99,13 +99,7 @@
     },
 
     // Fullcalendarバグ対応（終日表示が1日短くなる）
-    // eventDataTransform: function(event) {
-      // if(event.allDay) {
-        // event.end = moment(event.end).add(1, 'days')
-      // }
-      // return event;
-    // }
-
+    
 /*    eventDataTransform: function(event) {
       console.log(moment(event.end))
       if (event.allDay == true) {
