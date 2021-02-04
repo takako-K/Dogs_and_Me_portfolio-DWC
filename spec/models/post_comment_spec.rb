@@ -19,7 +19,7 @@ RSpec.describe 'PostCommentモデルのテスト', type: :model do
     subject { post_comment.valid? }
 
     let(:user) { create(:user) }
-    #
+    let(:post) { build(:post, user_id: user.id, post_image_id: '123') }
     let!(:post_comment) { build(:post_comment, user_id: user.id, post_id: post.id) }
 
     context 'commentカラム' do
