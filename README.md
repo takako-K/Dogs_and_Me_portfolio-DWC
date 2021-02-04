@@ -24,6 +24,14 @@
 
 ## 設計書
 
+### ER図
+
+https://app.diagrams.net/#G1IWiKITH0IfVbYK8PMzjQXEng1CvOEUew
+
+### アプリケーション詳細設計
+
+https://docs.google.com/spreadsheets/d/1N8qKQeYl_coiPFIorlJB5eu01UpEOvJvXEuY-ob0Nek/edit#gid=0
+
 ## チャレンジ要素一覧
 
 https://docs.google.com/spreadsheets/d/1iRpsq_U2sOY2fYtknGGtsYGJb2C9fPXEHViPjBNwApQ/edit?usp=sharing
