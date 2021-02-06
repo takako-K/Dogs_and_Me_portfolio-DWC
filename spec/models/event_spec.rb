@@ -11,12 +11,15 @@ RSpec.describe 'Eventモデルのテスト', type: :model do
   end
 
   describe 'バリデーションのテスト' do
-    subject { event valid? }
+    subject { event.valid? }
 
     let(:user) { create(:user) }
-    let!(:event) { build(:event, user_id: user.id) }
-
+    let!(:event) { build(:event, user_id: user.id, start: '2000-01-01 00:00', end: '2000-01-02 00:00') }
+    # let!(:not_allday_event)
     context 'startカラム' do
+      # before {
+      #   event.allday = false
+      # }
       it '空欄でないこと' do
         event.start = ''
         is_expected.to eq false
