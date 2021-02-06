@@ -20,19 +20,19 @@ RSpec.describe 'PostCommentモデルのテスト', type: :model do
 
     let(:user) { create(:user) }
     let(:post) { build(:post, user_id: user.id, post_image_id: '123') }
-    let!(:post_comment) { build(:post_comment, user_id: user.id, post_id: post.id) }
+    let!(:post_comment) { build(:post_comment, user_id: user.id, post_id: post.id, comment: 'comment') }
 
     context 'commentカラム' do
       it '空欄でないこと' do
         post_comment.comment = ''
         is_expected.to eq false
       end
-      it '200文字以下であること：200文字はOK' do
-        post_comment.comment Faker::Lorem.characters(number: 200)
+      it '200文字以下であること：200文字はOK' do     ###
+        post_comment.comment = Faker::Lorem.characters(number: 200)
         is_expected.to eq true
       end
       it '200文字以下であること：201文字はNG' do
-        post_comment.comment Faker::Lorem.characters(number: 201)
+        post_comment.comment = Faker::Lorem.characters(number: 201)
         is_expected.to eq false
       end
     end

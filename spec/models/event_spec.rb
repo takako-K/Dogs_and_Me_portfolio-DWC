@@ -11,10 +11,10 @@ RSpec.describe 'Eventモデルのテスト', type: :model do
   end
 
   describe 'バリデーションのテスト' do
-    subject { events valid? }
+    subject { event valid? }
 
     let(:user) { create(:user) }
-    let!(:event) { build(:event, user_id: user.id)}
+    let!(:event) { build(:event, user_id: user.id) }
 
     context 'startカラム' do
       it '空欄でないこと' do
@@ -55,7 +55,7 @@ RSpec.describe 'Eventモデルのテスト', type: :model do
         is_expected.to eq true
       end
       it '100文字以下であること：101文字はNG' do
-        event.body = Faker:Lorem.characters(number: 101)
+        event.body = Faker::Lorem.characters(number: 101)
         is_expected.to eq false
       end
     end
