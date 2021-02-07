@@ -49,10 +49,6 @@ RSpec.describe 'Eventモデルのテスト', type: :model do
     end
 
     context 'bodyカラム' do
-      it '空欄でないこと' do
-        event.body = ''
-        is_expected.to eq false
-      end
       it '100文字以下であること：100文字はOK' do
         event.body = Faker::Lorem.characters(number: 100)
         is_expected.to eq true
