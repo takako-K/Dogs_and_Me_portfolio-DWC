@@ -27,6 +27,7 @@
                       <label><%= f.radio_button :allday, false %>時間指定</label><br>
                       <span>開始日時</span>
                       <span><%= f.datetime_field :start, class: "field", placeholder: "XXXX-XX-XX" %> ~ </span><br>
+                      <span>:start_time</span>
                       <span>終了日時</span>
                       <span><%= f.datetime_field :end, class: "field", placeholder: "XXXX-XX-XX" %></span>
                     </p>
@@ -99,7 +100,7 @@
     },
 
     // Fullcalendarバグ対応（終日表示が1日短くなる）
-    
+
 /*    eventDataTransform: function(event) {
       console.log(moment(event.end))
       if (event.allDay == true) {
