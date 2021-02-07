@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
+    @posts = @user.posts.page(params[:page]).per(5).reverse_order
     @events = Event.where(user_id: current_user.id)
     @today_events = @events.where("start <= ? AND end >= ?", Date.today.end_of_day, Date.today.beginning_of_day)       # eventモデル利用して本日の予定表示
   end
 
   def index
-    @users = User.all
+    @users = User.all.page(params[:page]).per(10)
     @user = current_user
     @events = Event.where(user_id: current_user.id)
     @today_events = @events.where("start <= ? AND end >= ?", Date.today.end_of_day, Date.today.beginning_of_day)       # eventモデル利用して本日の予定表示
