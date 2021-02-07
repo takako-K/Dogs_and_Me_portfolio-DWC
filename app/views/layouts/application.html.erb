@@ -11,6 +11,8 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.min.css">
     <!--ここまで-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/jquery.bgswitcher.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -22,7 +24,7 @@
           <div class="col align-self-center">
             <div class="navbar-brand p-2">
               <%= link_to root_path(current_user) do %>
-                <%= image_tag '/assets/logo.jpg', size: '300x120' %>
+                <%= image_tag '/assets/logo.jpg', size: '250x100' %>
               <% end %>
             </div>
           </div>

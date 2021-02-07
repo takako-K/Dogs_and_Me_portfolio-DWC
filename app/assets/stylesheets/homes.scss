@@ -2,10 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.top-background {
-  background-image: url('/assets/pauline-loroy-U3aF7hgUSrk-unsplash.jpg');
-  background-size: cover;
-  background-position: top center;
+// .bg-slider {
+//   background-image: url('/assets/jamie-street-wcO2PWLuQ3U-unsplash.jpg');
+//   background-size: cover;
+//   background-position: top center;
+// }
+
+.bg-slider {
+// 	width: 100vw;
+// 	height: 100vh;
+	background-position: top center;
+	background-size: cover;
+// 	display: flex;
+// 	align-items: center;
+// 	justify-content: center;
 }
 
 .main-container {
@@ -13,5 +23,5 @@
 }
 
 .site-title {
-  color: #ff9966;
+  color: #ffffff;
 }
