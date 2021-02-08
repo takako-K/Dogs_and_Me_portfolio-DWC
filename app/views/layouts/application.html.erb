@@ -6,6 +6,8 @@
     <%= csp_meta_tag %>
 
     <script src="https://kit.fontawesome.com/1c69022796.js" crossorigin="anonymous"></script>
+    <!--レスポンシブ対応の為viewport読み込み（未完成）-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--FullCalendarの読み込み-->
     <title>FullCalendar</title>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.css">
@@ -97,10 +99,13 @@
       </p>
     <% end %>
 
-    <!--10秒かけてアラートを消したい-->
+    <!--10秒かけてアラートを消す＋背景画像の高さ調整-->
     <script>
       $(function(){
-      $(".alert").fadeOut(10000);
+        $(".alert").fadeOut(10000, hideYohaku);
+        function hideYohaku(){
+          $(".bg-slider").prev().offset({ top: 108 });
+        }
       });
 　  </script>
 

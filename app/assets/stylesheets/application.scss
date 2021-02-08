@@ -23,17 +23,15 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing:border-box;
+  box-sizing: border-box;
   font-family: 'Yusei Magic', sans-serif;
 }
 
 body {
   margin: 0;
-  display: flex;
   flex-flow: column;
   min-height: 100vh;
   position: relative;
-  box-sizing: border-box;
   padding-bottom: 60px;
 }
 
@@ -53,4 +51,36 @@ footer {
   left: 0;
   width: 100%;
   height: 30px;
+}
+
+
+
+/* スマートフォンサイズ（425px）以下の際に適用される設定 */
+@media screen and (max-width:425px) {
+  header {
+    width: 100%;
+  }
+
+/*サイドバー非表示*/
+  .user-info {
+    display: none;
+  }
+
+  .card-list-container {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .picture {
+    width: 100px;
+    height: 100px;
+    height: 150vw;
+  }
+
+  .card-body {
+    flex-wrap: wrap;
+    height: 30vw;
+  }
+
 }
