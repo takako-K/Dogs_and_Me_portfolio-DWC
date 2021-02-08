@@ -14,6 +14,7 @@ module NotificationsHelper
     end
   end
 
+  # 未確認の通知
   def unchecked_notifications
     current_user.passive_notifications.where(checked: false)
   end

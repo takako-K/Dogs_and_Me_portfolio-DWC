@@ -46,4 +46,6 @@ https://docs.google.com/spreadsheets/d/1iRpsq_U2sOY2fYtknGGtsYGJb2C9fPXEHViPjBNw
 
 ## 使用素材
 
-現状なし
+- O-DAN（オーダン） 無料写真素材・フリーフォト検索サイト：https://o-dan.net/ja/
+- イラストAC 無料イラスト素材検索サイト：https://www.ac-illust.com/
+- DesignEvo ロゴ作成サイト：https://www.designevo.com/
