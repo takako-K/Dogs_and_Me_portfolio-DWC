@@ -19,8 +19,8 @@ class Post < ApplicationRecord
       post_id: id,
       visited_id: user_id,
       action: "favorite"
-      )
-      notification.save if notification.valid?
+    )
+    notification.save if notification.valid?
   end
 
   def create_notification_post_comment!(current_user, post_comment_id)
@@ -40,11 +40,9 @@ class Post < ApplicationRecord
       post_comment_id: post_comment_id,
       visited_id: visited_id,
       action: 'post_comment'
-      )
+    )
     # 自分の投稿に対するコメントの場合は通知済に設定
-    if notification.visiter_id == notification.visited_id
-      notification.checked = true
-    end
+    notification.checked = true if notification.visiter_id == notification.visited_id
     notification.save if notification.valid?
   end
 end

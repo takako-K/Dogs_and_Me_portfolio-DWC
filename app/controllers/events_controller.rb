@@ -10,9 +10,7 @@ class EventsController < ApplicationController
     @events = Event.where(user_id: params[:user_id])
     # Fullcalendarバグ対応（終日表示が1日短くなる）
     @events = @events.map do |event|
-      if event.allday
-        event.end = event.end.since(1.days)
-      end
+      event.end = event.end.since(1.days) if event.allday
       event
     end
   end
@@ -29,8 +27,8 @@ class EventsController < ApplicationController
     @user = current_user
     @events = Event.where(user_id: current_user.id)
     event = Event.new(event_params)
-    # 終日を選択した場合、自動的にstart,endカラムに値が入る
-    if event != nil && event.allday == 'true'
+    # 終日を選択した場合、自動的にstart,endカラムに値（時刻）が入る
+    if !event.nil? && event.allday == 'true'
       event.start = event.start.strftime('%Y/%m/%d 00:00')
       event.end = event.end.strftime('%Y/%m/%d 00:00')
     end
@@ -42,8 +40,7 @@ class EventsController < ApplicationController
   def update
     event = Event.find(params[:id])
     @events = Event.where(user_id: current_user.id)
-    # 終日を選択した場合、自動的にstart,endカラムに値が入る
-    if params[:event] != nil && params[:event][:allday] == 'true'
+    if !params[:event].nil? && params[:event][:allday] == 'true'                # 終日を選択した場合、自動的にstart,endカラムに値（時刻）が入る
       allday_event_start = DateTime.parse(params[:event][:start]).strftime('%Y/%m/%d 00:00')
       allday_event_end = DateTime.parse(params[:event][:end]).strftime('%Y/%m/%d 00:00')
       event.update(event_params)
