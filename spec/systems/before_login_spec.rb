@@ -35,10 +35,10 @@ RSpec.describe 'ユーザー機能', type: :system do
         fill_in 'user[password_confirmation]', with: 'password'
       end
 
-      it '正しく新規登録される' do      ###
+      it '正しく新規登録される' do
         expect { click_button '新規登録' }.to change(User.all, :count).by(1)
       end
-      it '新規登録後のリダイレクト先はユーザー投稿（詳細）画面になっている' do        ###
+      it '新規登録後のリダイレクト先はユーザー投稿（詳細）画面になっている' do
         click_button '新規登録'
         expect(current_path).to eq '/users/' + User.last.id.to_s
       end
