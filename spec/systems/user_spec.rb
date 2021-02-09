@@ -22,7 +22,7 @@ RSpec.describe 'ユーザー機能', type: :system do
       it 'password_confirmationフォームが表示される' do
         expect(page).to have_field 'user[password_confirmation]'
       end
-      it 'Sign upボタンが表示される' do
+      it '新規登録ボタンが表示される' do
         expect(page).to have_button '新規登録'
       end
     end
@@ -101,7 +101,12 @@ RSpec.describe 'ユーザー機能', type: :system do
     end
 
     context 'ログアウトのテスト' do
+      it '正しくログアウトされ、新規登録リンクが表示されている' do
+        click_link 'ログアウト'
+        expect(page).to have_link '', href: new_user_registration_path
+      end
       it 'ログアウト後のリダイレクト先がトップ画面になっている' do
+        click_link 'ログアウト'
         expect(current_path).to eq '/'
       end
     end

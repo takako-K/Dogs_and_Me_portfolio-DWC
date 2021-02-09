@@ -5,7 +5,7 @@ class PostCommentsController < ApplicationController
     @comment.post_id = @post.id
     @comment.save!
     # 通知の作成
-    @post.create_notification_post_comment!(current_user, @post.id)
+    @post.create_notification_post_comment!(current_user, @comment.id)
     flash[:success] = "コメントを投稿しました。"
     redirect_to post_path(@post.id)
   end
