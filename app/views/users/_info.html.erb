@@ -7,7 +7,8 @@
           <h5><i class="fas fa-user"></i><%= user.name %></h5>
         </div>
         <div class="row mx-auto">
-          <%= user.introduction.truncate(50) %>
+          <!--演算子使用し、nilでもnilを返すよう設定-->
+          <%= user.introduction&.truncate(50) %>
         </div>
         <p>
           <%= link_to edit_user_path(user.id), class: "btn btn-outline-secondary btn-block" do %>
