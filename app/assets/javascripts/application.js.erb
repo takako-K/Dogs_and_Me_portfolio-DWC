@@ -23,7 +23,12 @@
 // top画面bg-slider
 $(window).load(function() {
   $('.bg-slider').bgSwitcher({
-    images: ['assets/angel-luciano-LATYeZyw88c-unsplash.jpg', 'assets/pauline-loroy-U3aF7hgUSrk-unsplash.jpg', 'assets/anna-dudkova-urs_y9NwFcc-unsplash.jpg', 'assets/jamie-street-wcO2PWLuQ3U-unsplash.jpg'], // 背景画像
+    images: [
+      "<%= asset_path('angel-luciano-LATYeZyw88c-unsplash.jpg') %>",
+      "<%= asset_path('pauline-loroy-U3aF7hgUSrk-unsplash.jpg') %>",
+      "<%= asset_path('anna-dudkova-urs_y9NwFcc-unsplash.jpg') %>",
+      "<%= asset_path('jamie-street-wcO2PWLuQ3U-unsplash.jpg') %>"
+    ], // 背景画像
     interval: 7000,          // 背景画像を7秒で切り替える
     loop: true,              // 切り替えを繰り返す
     shuffle: true,           // 背景画像の順番をシャッフルする
