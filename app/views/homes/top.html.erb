@@ -1,19 +1,19 @@
 <body class= "top-body">
   <div class="bg-slider">
-<div class="main-container">
-  <div class="row pt-5">
-    <div class="col-8 mx-auto">
-      <h1 class="site-title">ようこそ！犬と私のワンダフルライフ<i class="fas fa-paw"></i>へ！！</h1>
+    <div class="main-container">
+      <div class="row pt-5">
+        <div class="col-8 mx-auto">
+          <h1 class="site-title">ようこそ！犬と私のワンダフルライフ<i class="fas fa-paw"></i>へ！！</h1>
+        </div>
+      </div>
+      <div class="row justify-content-center mt-5">
+        <div class="col-2">
+          <%= link_to "新規登録", new_user_registration_path, class: "btn btn-success" %>
+        </div>
+        <div class="col-2">
+          <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="row justify-content-center mt-5">
-    <div class="col-2">
-      <%= link_to "新規登録", new_user_registration_path, class: "btn btn-success" %>
-    </div>
-    <div class="col-2">
-      <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %>
-    </div>
-  </div>
-</div>
-</div>
 </body>

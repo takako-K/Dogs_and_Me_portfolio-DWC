@@ -87,26 +87,23 @@
     </header>
 
     <main>
+      <!--フラッシュメッセージ-->
+      <% flash.each do |key, value| %>
+        <p class="alert alert-<%= key %> mt-3">
+          <%= value %>
+        </p>
+      <% end %>
 
-    <!--フラッシュメッセージ-->
-    <% flash.each do |key, value| %>
-      <p class="alert alert-<%= key %> mt-3">
-        <%= value %>
-      </p>
-    <% end %>
-
-    <!--10秒かけてアラートを消す＋背景画像の高さ調整-->
-    <script>
-      $(function(){
-        $(".alert").fadeOut(10000, hideYohaku);
-        function hideYohaku(){
-          $(".bg-slider").prev().offset({ top: 108 });
-        }
-      });
-　  </script>
-
-    <%= yield %>
-
+      <!--10秒かけてアラートを消す＋背景画像の高さ調整-->
+      <script>
+        $(function(){
+          $(".alert").fadeOut(10000, hideYohaku);
+          function hideYohaku(){
+            $(".bg-slider").prev().offset({ top: 108 });
+          }
+        });
+  　   </script>
+      <%= yield %>
     </main>
 
     <footer class="shadow-sm">

@@ -55,32 +55,30 @@ footer {
 
 
 
-/* スマートフォンサイズ（425px）以下の際に適用される設定 */
-@media screen and (max-width:425px) {
-  header {
-    width: 100%;
-  }
+// /* スマートフォンサイズ（425px）以下の際に適用される設定（未完） */
+// @media screen and (max-width:425px) {
+//   header {
+//     width: 100%;
+//   }
 
-/*サイドバー非表示*/
-  .user-info {
-    display: none;
-  }
+// /*サイドバー非表示*/
+//   .user-info {
+//     display: none;
+//   }
 
-  .card-list-container {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-  }
+//   .card-list-container {
+//     width: 100%;
+//     padding: 0;
+//     margin: 0;
+//   }
 
-  .picture {
-    width: 100px;
-    height: 100px;
-    height: 150vw;
-  }
+//   .picture {
+//     width: 100px;
+//     height: 100px;
+//     height: 150vw;
+//   }
 
-  .card-body {
-    flex-wrap: wrap;
-    height: 30vw;
-  }
-
-}
+//   .card-body {
+//     flex-wrap: wrap;
+//     height: 30vw;
+//   }

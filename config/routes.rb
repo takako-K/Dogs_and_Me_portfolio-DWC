@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :users
   root to: 'homes#top'
   get '/about', to: 'homes#about'
@@ -15,5 +16,4 @@ Rails.application.routes.draw do
   end
   delete 'notifications/destroy_all', to: 'notifications#destroy_all'
   resources :notifications, only: :index
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

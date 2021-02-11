@@ -1,5 +1,12 @@
 class EventsController < ApplicationController
   def json
+    @events = Event.where(user_id: params[:user_id])
+    # Fullcalendarバグ対応（終日表示が1日短くなるため、1日追加）
+    @events = @events.map do |event|
+      event.end = event.end.since(1.days) if event.allday
+      event
+    end
+    # Fullcalendarバグ対応（別ver.）
     # @events = []
     # Event.where(user_id: params[:user_id]).each do |event|
     #   if event.allday
@@ -7,19 +14,13 @@ class EventsController < ApplicationController
     #   end
     #   @events.push(event)
     # end
-    @events = Event.where(user_id: params[:user_id])
-    # Fullcalendarバグ対応（終日表示が1日短くなる）
-    @events = @events.map do |event|
-      event.end = event.end.since(1.days) if event.allday
-      event
-    end
   end
 
   def index
     @event = Event.new
     @user = current_user
     @events = Event.where(user_id: current_user.id)
-    # eventモデル利用して本日の予定表示
+    # サイドバーに本日の予定表示
     @today_events = @events.where("start <= ? AND end >= ?", Date.today.end_of_day, Date.today.beginning_of_day)
   end
 
@@ -40,7 +41,8 @@ class EventsController < ApplicationController
   def update
     event = Event.find(params[:id])
     @events = Event.where(user_id: current_user.id)
-    if !params[:event].nil? && params[:event][:allday] == 'true'                # 終日を選択した場合、自動的にstart,endカラムに値（時刻）が入る
+    # 終日を選択した場合、自動的にstart,endカラムに値（時刻）が入る
+    if !params[:event].nil? && params[:event][:allday] == 'true'
       allday_event_start = DateTime.parse(params[:event][:start]).strftime('%Y/%m/%d 00:00')
       allday_event_end = DateTime.parse(params[:event][:end]).strftime('%Y/%m/%d 00:00')
       event.update(event_params)

@@ -4,7 +4,7 @@ module NotificationsHelper
     @post_comment = nil
     @your_post = link_to 'あなたの投稿', post_path(notification.post_id), style: "font-weight: bold;"
     @visiter_post_comment = notification.post_comment_id
-    # notification.actionが、favoriteかpost_commentか
+    # notification.actionの種類が、favoriteかpost_commentかで分岐
     case notification.action
     when "favorite"
       tag.a(notification.visiter.name, href: user_path(@visiter), style: 'font-weight: bold;') + "が" + tag.a("あなたの投稿", href: post_path(notification.post_id), style: 'font-weight: bold;') + "にいいねしました。"
