@@ -58,12 +58,9 @@ describe 'ユーザーログイン後のテスト', type: :system do
     context '投稿のテスト：成功' do
       before do
         visit new_post_path
+        attach_file 'post[post_image]', "spec/fixtures/no_image.jpg"
         fill_in 'post[title]', with: Faker::Lorem.characters(number: 5)
         fill_in 'post[body]', with: Faker::Lorem.characters(number: 30)
-        # params = {
-        #   post_image: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/no_image.jpg'), 'image/jpg')
-        # }
-        # fill_in 'post[post_image]', with: '{"size":83367,"content_type":"image/jpeg","filename":"alessandro-desantis-9_9hzZVjV8s-unsplash.jpg","id":"b13cf1822600cfee3be5f2d90467444aa5b0405887d6c0d4cc7c0e9e529e"}'
       end
       it '自分の新しい投稿が正しく保存される' do
         expect { click_button '新規投稿' }.to change(user.posts, :count).by(1)
@@ -117,6 +114,7 @@ describe 'ユーザーログイン後のテスト', type: :system do
     context '投稿のテスト：成功' do
       before do
         visit new_post_path
+        attach_file 'post[post_image]', "spec/fixtures/no_image.jpg"
         fill_in 'post[title]', with: Faker::Lorem.characters(number: 5)
         fill_in 'post[body]', with: Faker::Lorem.characters(number: 30)
       end
