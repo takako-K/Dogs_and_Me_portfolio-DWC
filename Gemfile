@@ -74,7 +74,7 @@ gem 'momentjs-rails'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'kaminari', '~> 1.2.1'
 gem 'rails-i18n'             # バリデーションMSG等の日本語化
-gem 'dotenv-rails'           # デプロイに使用
+gem 'dotenv-rails'           # 環境変数を扱うため導入（デプロイ・Google Vision APIのkey読み込みに使用）
 group :production do
   gem 'mysql2'
 end

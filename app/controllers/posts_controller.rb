@@ -45,6 +45,11 @@ class PostsController < ApplicationController
     @posts = Post.all
     @post.user_id = current_user.id
     if @post.save
+      # Google Vision APIの呼び出しとタグの作成
+      tags = Vision.get_image_data(@post.post_image)
+      tags.each do |tag|
+        @post.tags.create(name: tag)
+      end
       flash[:success] = "投稿に成功しました。"
       redirect_to post_path(@post.id)
     else
