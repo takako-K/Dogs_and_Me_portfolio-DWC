@@ -28,6 +28,13 @@
                 <p class="card-text">
                   <%= post.body.truncate(120) %>
                 </p>
+                <span>
+                  <% post.tags.each do |tag| %>
+                    <span class="tag-label"><i class="fas fa-tag"></i> <%= tag.name %></span>
+                  <% end %>
+                </span>
+                <br>
+                <br>
                 <p>
                   <span><i class="fas fa-user"></i> By <%= post.user.name %> | </span>
                   <span><i class="fa fa-calendar"></i> <%= post.created_at.strftime('%Y/%m/%d') %> | </span>
